@@ -33,7 +33,7 @@ UniVLM-AICAS 是面向 AMD Kria KV260 的端侧视觉语言模型（VLM）加速
 | 指标 | 结果 | 测试配置 |
 | --- | ---: | --- |
 | OCRBench accuracy | **15 / 30 (50.0%)** | sample-30，`max_image_splits=5` |
-| Prefill throughput | **21.19 tok/s** | 300 MHz，376 prompt tokens，5 subimages |
+| Prefill throughput | **21.19 tok/s** | 250 MHz，376 prompt tokens，5 subimages |
 | Decode throughput | **14.31 tok/s** | 250 MHz，8 completion tokens |
 | Energy efficiency | **1.5715 tok/J** | 300 MHz prefill / 250 MHz decode，643 completion tokens，100 Hz PMBus sampling |
 | Average power | **5.21 W** | Energy run |
