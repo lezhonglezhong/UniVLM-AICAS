@@ -2,7 +2,7 @@
 
 [English](#english) | [中文](#中文)
 
-> A public, presentation-oriented archive of the UniVLM submission for the **AICAS 2026 Grand Challenge**. It preserves the recovered and re-verified **KV260 / W5A8** result set; it is not the active UniVLM-DAC research repository.
+> A public, presentation-oriented archive of the UniVLM submission for the **AICAS 2026 Grand Challenge**. It preserves the **KV260 / W5A8** result set.
 
 ![Architecture](assets/architecture.svg)
 
@@ -10,7 +10,7 @@
 
 ### 项目简介
 
-UniVLM-AICAS 是一个面向 AMD Kria KV260 的端侧视觉语言模型（VLM）推理原型。系统以 SmolVLM2-500M-Video-Instruct 为模型基础，在 ARM PS 与 FPGA PL 之间划分视觉预处理、量化推理、外部 DDR 数据搬运和自回归解码。该仓库将 AICAS 历史参赛版本整理成便于阅读、演示和引用的公开快照。
+UniVLM-AICAS 是一个面向 AMD Kria KV260 的端侧视觉语言模型（VLM）推理原型。系统以 SmolVLM2-500M-Video-Instruct 为模型基础，在 ARM PS 与 FPGA PL 之间划分视觉预处理、量化推理、外部 DDR 数据搬运和自回归解码。该仓库将 AICAS 参赛版本代码进行归档。
 
 ### 关键结果
 
