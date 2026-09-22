@@ -35,19 +35,11 @@ UniVLM-AICAS 是一个面向 AMD Kria KV260 的端侧视觉语言模型（VLM）
 - PYNQ 驱动加载 overlay、分配 DDR buffer、配置 AXI-Lite 寄存器，并以多子图顺序串行调度 ViT 后进入 LLM。
 - 评测覆盖 OCRBench sample-30、吞吐率、板载 PMBus 能耗采样和 TTFT 拟合。完整条件和不可比边界见 [方法说明](docs/method.md)。
 
-### 公开内容与边界
+### 验证归档结果
 
-本仓库有意只包含可展示的代码和小型结果摘要：演示入口、指标自检脚本、架构/方法文档与结果记录。为保证资产配对并避免分发模型和平台受限内容，**不包含** W5A8 权重、packed bin、bitstream/overlay、Vivado 工程、OCRBench 图像/标注、板端镜像或完整恢复包。
+这是一个源码与结果归档仓库，不是可直接部署的加速器发布包。它不包含匹配的 W5A8 权重、packed bin、bitstream/overlay、模型、数据集、板端镜像或生成工程；完整部署还需要受控资产及其 overlay↔weight manifest 配对。
 
-| 内容 | 是否公开 | 说明 |
-| --- | --- | --- |
-| 展示文档、图表、结果摘要 | 是 | 本仓库直接提供 |
-| PYNQ demo 入口 | 是 | 见 `hardware/pynq/core/demo.py`；依赖受控部署运行时 |
-| 结果完整性检查工具 | 是 | 见 `scripts/check_archived_results.py` |
-| 模型/量化权重、bitstream、bin | 否 | 不作为公开发布物；必须使用匹配 manifest 的受控资产 |
-| OCRBench 数据和原始评测工具包 | 否 | 由其各自发布方获取并遵守其许可 |
-
-### 快速开始
+下面的命令只验证本仓库记录的历史指标是否被改动，不运行模型、不连接 FPGA：
 
 本展示仓库无需 FPGA 即可检查归档指标：
 
@@ -68,7 +60,6 @@ python3 scripts/check_archived_results.py
 ├── assets/     # 架构图、从归档结果生成的 Demo 结果卡片与输入示例
 ├── docs/       # 方法、溯源、运行与 Demo 素材说明
 ├── hardware/   # 从冻结 W5A8 tag 筛选出的 HLS、SpinalHDL、Vivado 与 PYNQ 源码
-├── release_assets/ # 本机受控归档；被 Git 忽略，绝不推送
 ├── results/    # 可公开的、精简后的已验证指标记录
 └── scripts/    # 不依赖硬件的结果自检工具
 ```
