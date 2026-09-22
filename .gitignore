@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+results/*.json
+!results/w5a8_verified_metrics.json
+!results/.gitkeep
+assets/*.mp4
+assets/*.mov
+
+# Deployment artifacts and model assets are intentionally not public.
+overlay/
+bin/
+weights/
+models/
+*.bit
+*.hwh
+*.xclbin
+*.bin

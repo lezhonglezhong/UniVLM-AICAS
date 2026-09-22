@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760">
+  <style>text{font-family:'Helvetica Neue',Helvetica,Arial,'PingFang SC','Microsoft YaHei',sans-serif;fill:#111827}.title{font-size:24px;font-weight:600}.label{font-size:16px;font-weight:600}.sub{font-size:13px;fill:#4b5563}.tiny{font-size:12px;fill:#6b7280}</style>
+  <defs>
+    <marker id="blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#2563eb"/></marker>
+    <marker id="green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16a34a"/></marker>
+    <marker id="purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#9333ea"/></marker>
+  </defs>
+  <rect width="1200" height="760" fill="#fff"/>
+  <text x="50" y="48" class="title">UniVLM-AICAS：KV260 上的 W5A8 视觉语言模型推理链路</text>
+  <text x="50" y="74" class="sub">历史 AICAS 归档（设计源：3c897b1；结果恢复记录：2026-06-18）</text>
+  <rect x="46" y="105" width="1108" height="150" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="66" y="133" class="label">PS / ARM host：预处理与调度</text>
+  <rect x="75" y="157" width="210" height="66" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="180" y="184" text-anchor="middle" class="label">图像与文本输入</text><text x="180" y="205" text-anchor="middle" class="sub">SmolVLM2 processor / tokenizer</text>
+  <rect x="390" y="157" width="230" height="66" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="505" y="184" text-anchor="middle" class="label">Patch / Position Embedding</text><text x="505" y="205" text-anchor="middle" class="sub">多子图按 processor 顺序展开</text>
+  <rect x="735" y="157" width="220" height="66" rx="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+  <text x="845" y="184" text-anchor="middle" class="label">Connector 与 Embedding Merge</text><text x="845" y="205" text-anchor="middle" class="sub">ViT 后处理 / 文本-视觉融合</text>
+  <path d="M285 190 H390" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/><path d="M620 190 H735" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+  <rect x="46" y="290" width="1108" height="245" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="66" y="318" class="label">KV260 Programmable Logic：量化计算与数据搬运</text>
+  <rect x="75" y="350" width="190" height="130" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="170" y="378" text-anchor="middle" class="label">ViT Encoder</text><text x="170" y="401" text-anchor="middle" class="sub">12 layers · W5A8</text><text x="170" y="423" text-anchor="middle" class="sub">LayerNorm / Attention / GELU</text><text x="170" y="450" text-anchor="middle" class="tiny">单子图 T=1024，串行调度</text>
+  <rect x="355" y="350" width="205" height="130" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="458" y="378" text-anchor="middle" class="label">共享流式计算 IP</text><text x="458" y="401" text-anchor="middle" class="sub">GEMM · QK/RV · Softmax</text><text x="458" y="423" text-anchor="middle" class="sub">Norm · Residual · MUX</text><text x="458" y="450" text-anchor="middle" class="tiny">AXIS 数据流 / 量化打包</text>
+  <rect x="650" y="350" width="205" height="130" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="753" y="378" text-anchor="middle" class="label">LLM Decoder</text><text x="753" y="401" text-anchor="middle" class="sub">32 layers · W5A8</text><text x="753" y="423" text-anchor="middle" class="sub">Prefill + 自回归 Decode</text><text x="753" y="450" text-anchor="middle" class="tiny">CLS / lm-head 输出 token id</text>
+  <rect x="945" y="350" width="165" height="130" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+  <text x="1028" y="378" text-anchor="middle" class="label">外部 DDR</text><text x="1028" y="401" text-anchor="middle" class="sub">W5A8 packed weights</text><text x="1028" y="423" text-anchor="middle" class="sub">state / KV cache</text><text x="1028" y="450" text-anchor="middle" class="tiny">M_AXI / WEIGHT_AXI</text>
+  <path d="M265 415 H355 M560 415 H650" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#green)"/><path d="M945 390 H855" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#purple)"/><path d="M945 440 H560" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#purple)"/>
+  <path d="M505 223 V310 H170 V350" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/><path d="M845 223 V310 H753 V350" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#blue)"/>
+  <rect x="46" y="570" width="1108" height="115" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="66" y="599" class="label">运行时与评测</text><text x="80" y="630" class="sub">PYNQ 驱动：加载 overlay、分配 DDR、配置 AXI-Lite、启动 PL、回读 token</text><text x="80" y="656" class="sub">OCRBench sample-30 · throughput · PMBus power / energy · TTFT linear fit</text>
+  <line x1="850" y1="616" x2="885" y2="616" stroke="#2563eb" stroke-width="2" marker-end="url(#blue)"/><text x="895" y="621" class="tiny">控制 / 激活流</text><line x1="850" y1="644" x2="885" y2="644" stroke="#9333ea" stroke-width="2" marker-end="url(#purple)"/><text x="895" y="649" class="tiny">DDR 数据流</text>
+  <text x="50" y="720" class="tiny">注：此图描述历史 W5A8 参赛链路，不代表当前 UniVLM DAC 研究实现或 W4A5 冻结基线。</text>
+</svg>
