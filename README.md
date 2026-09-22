@@ -10,13 +10,13 @@ UniVLM-AICAS 是面向 AMD Kria KV260 的端侧视觉语言模型（VLM）加速
 
 ### 加速器架构
 
-![UniVLM accelerator architecture](assets/accelerator-architecture.png)
+![UniVLM accelerator architecture](assets/paper-crossbar.drawio.png)
 
 加速器以 AXI Crossbar、Memory Streaming Unit 和 AXI-Lite Controller 连接 CPU、LPDDR/HBM 与计算单元。共享的 Tensor Core、Accumulator、MUX/DEMUX、Attention、Norm、Quantization 与 KV Cache 数据通路支持 ViT 编码和 LLM 解码。
 
 ### 模型推理流程
 
-![SmolVLM inference flow](assets/smolvlm-inference-flow.png)
+![SmolVLM inference flow](assets/paper-workload_reuse_new.drawio.png)
 
 图像经 SigLIP ViT 编码后通过 Connector 映射到语言模型的 hidden size，再与文本 token embedding 融合；LLaMA3 Decoder 生成 token，LM Head 输出最终文本。
 
