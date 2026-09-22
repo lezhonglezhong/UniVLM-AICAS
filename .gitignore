@@ -12,6 +12,7 @@ overlay/
 bin/
 weights/
 models/
+release_assets/
 *.bit
 *.hwh
 *.xclbin

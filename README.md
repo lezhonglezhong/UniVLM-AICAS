@@ -70,6 +70,8 @@ python3 scripts/check_archived_results.py
 ├── assets/     # 架构图、从归档结果生成的 Demo 结果卡片与输入示例
 ├── code/       # 公开的 PYNQ demo 入口
 ├── docs/       # 方法、溯源、运行与 Demo 素材说明
+├── hardware/   # 从冻结 W5A8 tag 筛选出的 HLS、SpinalHDL、Vivado 与 PYNQ 源码
+├── release_assets/ # 本机受控归档；被 Git 忽略，绝不推送
 ├── results/    # 可公开的、精简后的已验证指标记录
 └── scripts/    # 不依赖硬件的结果自检工具
 ```
@@ -83,6 +85,10 @@ python3 scripts/check_archived_results.py
 - 赛事：AICAS 2026 Grand Challenge Hardware（KV260）。本项目成果对应参赛系统归档；目前没有可公开链接的同行评审论文。若后续论文发布，请在 [论文信息](docs/paper.md) 中补充正式题目、作者、会议与 DOI/arXiv 链接。
 
 详细证据链、指标口径和排除项见 [Provenance](docs/provenance.md)。
+
+### Hardware source snapshot
+
+`hardware/` is a source-only snapshot extracted from the frozen W5A8 tag. It contains HLS C++ modules, shared headers, SpinalHDL Scala sources, Vivado build scripts, and the PYNQ host driver. Generated RTL, Vivado projects, bitstreams, packed binaries, weights, datasets, and the local `release_assets/` archive are excluded from GitHub.
 
 ## English
 

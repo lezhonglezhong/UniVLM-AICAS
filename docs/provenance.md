@@ -34,3 +34,7 @@ These are historical reproduction results, not claims of performance on another 
 ## Excluded assets
 
 No model weights, quantization scales, packed binaries, overlay/bitstream, board image, test dataset, full result logs, or original recovery tarball is copied here. They are intentionally excluded both because of size and because deployment correctness requires an exact overlay-to-weight manifest pairing.
+
+## Local archive relocation
+
+The controlled TCAS directory `release_assets/KV260-W5A8/` was relocated into this repository's local `release_assets/KV260-W5A8/` directory at the user's request. It is ignored by Git and is not part of this public repository. The public source snapshot remains independently traceable to the frozen Git tag above.
