@@ -26,16 +26,18 @@ UniVLM-AICAS 是面向 AMD Kria KV260 的端侧视觉语言模型（VLM）加速
 
 `hardware/pynq/core/demo.py` 提供单图描述 Demo 入口，并将生成文本、Prefill、Decode 和总耗时写入 JSON。
 
+本仓库公开UniVLM的HLS、SpinalHDL、Vivado及PYNQ核心源代码和已验证实验结果。完整板端复现还需要对应KV260 overlay、量化权重及SmolVLM2模型文件；受文件体积和模型许可限制，部分运行资产未包含在仓库中。
+
 ### 关键结果
 
 | 指标 | 结果 | 测试配置 |
 | --- | ---: | --- |
-| OCRBench accuracy | **15 / 30 (50.0%)** | sample-30，250 MHz，`max_image_splits=5` |
-| Prefill throughput | **21.23 tok/s** | 300 MHz，376 prompt tokens，5 subimages |
-| Decode throughput | **14.28 tok/s** | 250 MHz，8 completion tokens |
-| Energy efficiency | **1.4954 tok/J** | 250 MHz，643 completion tokens，100 Hz PMBus sampling |
-| Average power | **5.08 W** | Energy run |
-| TTFT | **1.647 ms/char + 14952 ms** | 250 MHz，2 images × 3 prompts |
+| OCRBench accuracy | **15 / 30 (50.0%)** | sample-30，`max_image_splits=5` |
+| Prefill throughput | **21.19 tok/s** | 300 MHz，376 prompt tokens，5 subimages |
+| Decode throughput | **14.31 tok/s** | 250 MHz，8 completion tokens |
+| Energy efficiency | **1.5715 tok/J** | 300 MHz prefill / 250 MHz decode，643 completion tokens，100 Hz PMBus sampling |
+| Average power | **5.21 W** | Energy run |
+| TTFT | **1.661 ms/char + 13282.6 ms** | 300 MHz prefill / 250 MHz decode，2 images |
 | Timing closure | **WNS +0.096 ns @ 250 MHz** | Vivado 2024.2 post-route |
 
 ### 论文信息

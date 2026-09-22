@@ -1,10 +1,10 @@
 {
   "record": "UniVLM-AICAS KV260 W5A8 results",
   "results": {
-    "ocrbench_sample30": {"correct": 15, "total": 30, "accuracy": 0.5, "fclk_mhz": 250, "max_image_splits": 5},
-    "throughput": {"prefill_tok_s": 21.23, "decode_tok_s": 14.28, "prepare_prefill_fclk_mhz": 300, "decode_fclk_mhz": 250, "prompt_tokens": 376, "subimages": 5, "completion_tokens": 8},
-    "energy": {"tokens_per_joule": 1.4954, "average_power_w": 5.08, "total_energy_j": 429.97, "completion_tokens": 643, "fclk_mhz": 250, "sample_hz": 100},
-    "ttft": {"slope_ms_per_char": 1.647, "intercept_ms": 14952, "fclk_mhz": 250, "images": 2, "prompt_lengths": 3, "repeats": 2},
+    "ocrbench_sample30": {"correct": 15, "total": 30, "accuracy": 0.5, "max_image_splits": 5},
+    "throughput": {"prefill_tok_s": 21.19127881198675, "decode_tok_s": 14.30557238641584, "prepare_prefill_fclk_mhz": 300, "decode_fclk_mhz": 250, "prompt_tokens": 376, "subimages": 5, "completion_tokens": 8},
+    "energy": {"tokens_per_joule": 1.5715118531127308, "average_power_w": 5.213274361209671, "total_energy_j": 409.1601337440724, "completion_tokens": 643, "prepare_prefill_fclk_mhz": 300, "decode_fclk_mhz": 250, "sample_hz": 100},
+    "ttft": {"slope_ms_per_char": 1.6610218302815856, "intercept_ms": 13282.58568057369, "prepare_prefill_fclk_mhz": 300, "decode_fclk_mhz": 250, "images": 2},
     "timing": {"target_fclk_mhz": 250, "wns_ns": 0.096}
   }
 }
