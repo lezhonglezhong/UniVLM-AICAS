@@ -12,8 +12,6 @@
 
 UniVLM-AICAS 是一个面向 AMD Kria KV260 的端侧视觉语言模型（VLM）推理原型。系统以 SmolVLM2-500M-Video-Instruct 为模型基础，在 ARM PS 与 FPGA PL 之间划分视觉预处理、量化推理、外部 DDR 数据搬运和自回归解码。该仓库将 AICAS 历史参赛版本整理成便于阅读、演示和引用的公开快照。
 
-本仓库只展示已核验的 W5A8 历史结果。当前的 W4A5 KV260 基线与 DAC 后续研究位于另一个非展示开发仓库，不能将其结果与下表混用。
-
 ### 关键结果
 
 | 指标 | 归档复现结果 | 测试口径 |
@@ -44,7 +42,7 @@ UniVLM-AICAS 是一个面向 AMD Kria KV260 的端侧视觉语言模型（VLM）
 | 内容 | 是否公开 | 说明 |
 | --- | --- | --- |
 | 展示文档、图表、结果摘要 | 是 | 本仓库直接提供 |
-| PYNQ demo 入口 | 是 | 见 `code/demo.py`；依赖私有部署运行时 |
+| PYNQ demo 入口 | 是 | 见 `hardware/pynq/core/demo.py`；依赖受控部署运行时 |
 | 结果完整性检查工具 | 是 | 见 `scripts/check_archived_results.py` |
 | 模型/量化权重、bitstream、bin | 否 | 不作为公开发布物；必须使用匹配 manifest 的受控资产 |
 | OCRBench 数据和原始评测工具包 | 否 | 由其各自发布方获取并遵守其许可 |
@@ -61,14 +59,13 @@ python3 scripts/check_archived_results.py
 
 预期输出为 `PASS: archived W5A8 metrics match the public record.`。
 
-若你拥有已授权且与 manifest 相匹配的 KV260 部署资产，可将 `code/demo.py` 作为 PYNQ demo 启动入口的参考。它并非独立可运行包：需要匹配的 overlay、权重、PYNQ 运行时、`local_inference` 模块和 KV260 板卡。部署边界与命令见 [运行说明](docs/run-on-kv260.md)。
+若你拥有已授权且与 manifest 相匹配的 KV260 部署资产，可将 `hardware/pynq/core/demo.py` 作为 PYNQ demo 启动入口的参考。它并非独立可运行包：需要匹配的 overlay、权重、PYNQ 运行时、`local_inference` 模块和 KV260 板卡。部署边界与命令见 [运行说明](docs/run-on-kv260.md)。
 
 ### 项目结构
 
 ```text
 .
 ├── assets/     # 架构图、从归档结果生成的 Demo 结果卡片与输入示例
-├── code/       # 公开的 PYNQ demo 入口
 ├── docs/       # 方法、溯源、运行与 Demo 素材说明
 ├── hardware/   # 从冻结 W5A8 tag 筛选出的 HLS、SpinalHDL、Vivado 与 PYNQ 源码
 ├── release_assets/ # 本机受控归档；被 Git 忽略，绝不推送

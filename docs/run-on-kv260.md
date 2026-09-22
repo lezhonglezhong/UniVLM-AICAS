@@ -12,7 +12,7 @@ This page is a deployment reference for authorized holders of the original AICAS
 
 ## Historical command shape
 
-On the board, the recovery record used a PYNQ virtual-environment Python interpreter and exported `XILINX_XRT=/usr`. The public `code/demo.py` is the historical demo entry shape:
+On the board, the recovery record used a PYNQ virtual-environment Python interpreter and exported `XILINX_XRT=/usr`. The public `hardware/pynq/core/demo.py` is the historical demo entry shape:
 
 ```bash
 export XILINX_XRT=/usr
