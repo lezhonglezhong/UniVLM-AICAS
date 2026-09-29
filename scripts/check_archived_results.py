@@ -12,6 +12,8 @@ EXPECTED = {
     ("ocrbench_sample30", "total"): 30,
     ("throughput", "prefill_tok_s"): 21.19127881198675,
     ("throughput", "decode_tok_s"): 14.30557238641584,
+    ("throughput", "prepare_prefill_fclk_mhz"): 250,
+    ("throughput", "decode_fclk_mhz"): 250,
     ("energy", "tokens_per_joule"): 1.5715118531127308,
     ("ttft", "slope_ms_per_char"): 1.6610218302815856,
     ("ttft", "intercept_ms"): 13282.58568057369,
